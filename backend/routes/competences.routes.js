@@ -2,9 +2,9 @@ module.exports = app => {
     const competences = require("../controllers/competences.controller.js");
     var router = require("express").Router();
     //Create a new Competence
-    router.post("/".competences.create);
+    router.post("/", competences.create);
     //Retrieve all Competence
-    router.get("/".competences.finAll);
+    router.get("/", competences.finAll);
     //Retrieve one Competence
     router.get("/:id", competences.findOne);
     // Update a Competence

@@ -1,7 +1,7 @@
 const { Sequelize } = require(".");
 
 module.exports = (sequelize, Sequelize) => {
-    const Competence = sequelize.define("competences", {
+    const Competence = sequelize.define("competence", {
         id_competence: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        charac_competence: {
+        carac_competence: {
             type: Sequelize.STRING,
             allowNull: false
         },
