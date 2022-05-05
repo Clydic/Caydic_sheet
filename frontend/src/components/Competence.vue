@@ -41,7 +41,7 @@
 <script>
 import CompetenceDataService from "../services/CompetenceDataService";
 export default {
-  name: "competence",
+  name: "MyCompetence",
   data() {
     return {
       currentCompetence: null,

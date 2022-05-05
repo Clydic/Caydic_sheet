@@ -1,8 +1,9 @@
 <template>
   <div class="submit-form">
+<h3>Ajouter une compétence</h3>
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="name_competence">Nom</label>
+        <label for="name_competence">Nom de la compétence</label>
         <input
           type="text"
           class="form-control"
@@ -50,7 +51,7 @@ export default {
         id: null,
         name_competence: "",
         description: "",
-        carac_competence: false
+        carac_competence: ""
       },
       submitted: false
     };
