@@ -9,7 +9,7 @@ class CompetenceDataService {
     create(data) {
         return http.post("/competences", data);
     }
-    update() {
+    update(id, data) {
         return http.put(`/competences/${id}`, data);
     }
     delete(id) {
@@ -22,3 +22,4 @@ class CompetenceDataService {
         return http.get(`/competences?name_competence=${name_competence}`);
     }
 }
+export default new CompetenceDataService();
