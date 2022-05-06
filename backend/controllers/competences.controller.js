@@ -29,9 +29,9 @@ exports.create = (req, res) => {
 };
 //Retrieve all character from database.
 exports.findAll = (req, res) => {
-    const name = req.query.name_competence;
+    const name = req.query.name;
     var condition = name ? {
-        name: {
+        name_competence: {
             [Op.like]: `%${name}%`
         }
     } : null;
@@ -67,9 +67,9 @@ exports.findOne = (req, res) => {
 
 // Update a Competence by the id in the request
 exports.update = (req, res) => {
-    const id = req.params.id_competence;
+    const id = req.params.id;
     Competence.update(req.body, {
-            where: { id: id }
+            where: { id_competence: id }
         })
         .then(num => {
             if (num == 1) {
@@ -92,7 +92,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
     Competence.destroy({
-            where: { id: id }
+            where: { id_competence: id }
         })
         .then(num => {
             if (num == 1) {
@@ -123,18 +123,6 @@ exports.deleteAll = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while removing all competences."
-            });
-        });
-};
-//  Find all published Competence
-exports.findAllPublished = (req, res) => {
-    Competence.findAll({ where: { published: true } })
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || "Some error occurred while retrieving competences."
             });
         });
 };

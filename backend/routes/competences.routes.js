@@ -8,7 +8,7 @@ module.exports = app => {
     //Retrieve one Competence
     router.get("/:id", competences.findOne);
     // Update a Competence
-    router.put("/id:", competences.update);
+    router.put("/:id", competences.update);
     // Delete a Competence
     router.delete("/:id", competences.delete);
     // Delete all Competence
