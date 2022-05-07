@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 };
 //Retrieve all character from database.
 exports.findAll = (req, res) => {
-    const name = req.query.name;
+    const name = req.query.name_competence;
     var condition = name ? {
         name_competence: {
             [Op.like]: `%${name}%`

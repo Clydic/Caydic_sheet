@@ -4,7 +4,7 @@ module.exports = app => {
     //Create a new Competence
     router.post("/", competences.create);
     //Retrieve all Competence
-    //router.get("/", competences.finAll);
+    router.get("/", competences.findAll);
     //Retrieve one Competence
     router.get("/:id", competences.findOne);
     // Update a Competence
