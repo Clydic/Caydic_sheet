@@ -4,11 +4,11 @@ module.exports = app => {
     //Create a new Competence
     router.post("/", competences.create);
     //Retrieve all Competence
-    router.get("/", competences.finAll);
+    router.get("/", competences.findAll);
     //Retrieve one Competence
     router.get("/:id", competences.findOne);
     // Update a Competence
-    router.put("/id:", competences.update);
+    router.put("/:id", competences.update);
     // Delete a Competence
     router.delete("/:id", competences.delete);
     // Delete all Competence
