@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
+import MyCharacVue from "./components/MyCharac.vue";
 const routes = [{
-        path: "/",
-        alias: "/competences",
+        path: "/competences",
         name: "competences",
         component: () =>
             import ("./components/CompetenceList")
@@ -17,6 +17,12 @@ const routes = [{
         name: "add",
         component: () =>
             import ("./components/addCompetence")
+    },
+    {
+
+        path: "/",
+        alias: "/home",
+        component: MyCharacVue
     }
 ];
 const router = createRouter({

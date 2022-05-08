@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <router-link to="/" class="navbar-brand">Clydic</router-link>
+      <router-link to="/" class="navbar-brand">Caydic</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/competences" class="nav-link">Competence</router-link>
@@ -14,17 +14,12 @@
     <div class="container mt-3">
       <router-view />
     </div>
-    <div id="mycharac">
-      <MyCharac/>
-    </div>
 
   </div>
 </template>
 <script>
-import MyCharac from "./components/MyCharac.vue";
 export default {
     name: "app",
-components: { MyCharac }
 };
 </script>
 
