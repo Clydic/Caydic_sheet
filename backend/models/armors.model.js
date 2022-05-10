@@ -1,32 +1,32 @@
 module.exports = (sequelize, Sequelize) => {
-    const Arme = sequelize.define("arme", {
-        id_arme: {
+    const Armor = sequelize.define("armure", {
+        id_armor: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
-        name_arme: {
+        name_armor: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        type_degat: {
+        bonus_ca: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        category_arme: {
+        category_armor: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         },
-        nb_degat: {
+        malus_dex: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         },
-        prix_arme: {
-            type: Sequelize.INTEGER,
-            allowNull: false
+        prix_armor: {
+            type: Sequelize.STRING,
+            allowNull: true
         },
 
     });
-    return Arme;
+    return Armor;
 };

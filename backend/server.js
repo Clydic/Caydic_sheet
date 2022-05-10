@@ -13,9 +13,10 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-// simple route
+// several routes
 require("./routes/competences.routes")(app);
 require("./routes/armes.routes")(app);
+require("./routes/armors.routes")(app);
 
 // set port, listen for requests
 app.listen(PORT, () => {
