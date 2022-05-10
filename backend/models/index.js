@@ -15,4 +15,5 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.competences = require("./competences.model.js")(sequelize, Sequelize);
+db.armes = require("./armes.model.js")(sequelize, Sequelize);
 module.exports = db;

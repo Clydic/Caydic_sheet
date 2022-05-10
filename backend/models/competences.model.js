@@ -1,5 +1,3 @@
-const { Sequelize } = require(".");
-
 module.exports = (sequelize, Sequelize) => {
     const Competence = sequelize.define("competence", {
         id_competence: {

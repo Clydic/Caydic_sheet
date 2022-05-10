@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 //const cors = require("cors");
 const app = express();
 const competenceRoutes = require("./routes/competences.route");
+const armeRouter = require("./routes/armes.route");
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,4 +22,5 @@ app.get("/", (req, res) => {
 // set port, listen for requests
 const db = require("./models");
 app.use('/api/competences', competenceRoutes);
+app.use('/api/armes', armeRouter);
 module.exports = app;

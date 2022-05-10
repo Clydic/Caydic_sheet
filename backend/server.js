@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
 require("./routes/competences.routes")(app);
+require("./routes/armes.routes")(app);
 
 // set port, listen for requests
 app.listen(PORT, () => {
