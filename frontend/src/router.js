@@ -1,19 +1,19 @@
 import { createWebHistory, createRouter } from "vue-router";
 import MyCharacVue from "./components/MyCharac.vue";
 const routes = [{
-        path: "/competences",
+        path: "/character/competences",
         name: "competences",
         component: () =>
             import ("./components/CompetenceList")
     },
     {
-        path: "/competences/:id",
+        path: "/character/competences/:id",
         name: "competences-details",
         component: () =>
             import ("./components/Competence")
     },
     {
-        path: "/add",
+        path: "/character/competences/add",
         name: "add",
         component: () =>
             import ("./components/addCompetence")

@@ -37,7 +37,7 @@
                 <div>
                     <label><strong>Caractéristiques:</strong></label>{{currentCompetence.carac_competence}}
                 </div>
-                    <router-link :to="'/competences/' + currentCompetence.id_competence" class="badge badge-warning">Edit</router-link>
+                    <router-link :to="'/character/competences/' + currentCompetence.id_competence" class="badge badge-warning">Edit</router-link>
             </div>
             <div v-else>
                 <p>Please click on a Competence...</p>
@@ -88,7 +88,7 @@ export default {
         });
     },
     
-    searchTitle() {
+    searchName() {
       CompetenceDataService.findByName(this.title)
         .then(response => {
           this.competences = response.data;

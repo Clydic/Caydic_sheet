@@ -1,7 +1,6 @@
 import http from "../http-common";
-const path = "/character/competences";
-
-class CompetenceDataService {
+const path = "/character/armes"
+class ArmeDataService {
     getAll() {
         return http.get(path);
     }
@@ -20,8 +19,8 @@ class CompetenceDataService {
     deleteAll() {
         return http.delete(path + "/");
     }
-    findByName(name_competence) {
-        return http.get(`${path}/?name=${name_competence}`);
+    findByName(name_arme) {
+        return http.get(`/competences?name_competence=${name_arme}`);
     }
 }
-export default new CompetenceDataService();
+export default new ArmeDataService();
