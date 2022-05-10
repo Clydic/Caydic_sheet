@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         },
         bonus_ca: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         category_armor: {

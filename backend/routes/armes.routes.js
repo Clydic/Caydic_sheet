@@ -13,5 +13,5 @@ module.exports = app => {
     router.delete("/:id", armes.delete);
     // Delete all Competence
     router.delete("/", armes.deleteAll);
-    app.use('/api/armes', router);
+    app.use('/character/armes', router);
 }

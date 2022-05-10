@@ -13,5 +13,5 @@ module.exports = app => {
     router.delete("/:id", armors.delete);
     // Delete all Armor
     router.delete("/", armors.deleteAll);
-    app.use('/api/armors', router);
+    app.use('/character/armors', router);
 }
