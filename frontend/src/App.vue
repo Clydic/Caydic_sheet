@@ -1,13 +1,20 @@
 <template>
   <div id="wrapper">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <header class="container">
+        <h2>{{character_name}}</h2>
+        <h3>{{age}}</h3>
+        <p>{{classe}}</p>
+
+    </header>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark ">
       <router-link to="/home" class="navbar-brand">Caydic</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/character/competences" class="nav-link">Competence</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/character/competences/add" class="nav-link">Ajouter</router-link>
+          <router-link to="/character/armes" class="nav-link">Armes</router-link>
         </li>
       </div>
     </nav>
@@ -20,6 +27,15 @@
 <script>
 export default {
     name: "app",
+    data(){
+      return{
+    character_name : "Caydic Croc-Blanc",
+    age : "25 ans",
+    classe : "Barbare",
+
+      }
+
+    }
 };
 </script>
 

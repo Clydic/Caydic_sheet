@@ -11,58 +11,64 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h4>Listes des Compétences</h4>
+            <h4>Listes des Armes</h4>
             <ul class="list-group">
                     <li class="list-group-item"
           :class="{ active: index == currentIndex }"
-          v-for="(competence, index) in competences"
+          v-for="(arme, index) in armes"
           :key="index"
-          @click="setActiveCompetence(competence, index)">
-          {{ competence.name_competence }}
+          @click="setActiveArme(arme, index)">
+          {{ arme.name_competence }}
         </li>
             </ul>
-            <button class="m-3 btn-sm btn-danger" @click="removeAllCompetences">
+            <button class="m-3 btn-sm btn-danger" @click="removeAllArmes">
                 Remove All
             </button>
-          <router-link to="/character/competences/add" class="btn btn-success ">Ajouter</router-link>
+          <router-link to="/character/armes/add" class="btn btn-success ">Ajouter</router-link>
         </div>
         <div class="col-md-6">
-            <div v-if="currentCompetence">
-                <h4>Competence</h4>
+            <div v-if="currentArme">
+                <h4>Arme</h4>
                 <div>
-                    <label><strong>Name:</strong></label>{{currentCompetence.name_competence}}
+                    <label><strong>Nom:</strong></label>{{currentArme.name_arme}}
                 </div>
                 <div>
-                    <label><strong>Description:</strong></label>{{currentCompetence.description}}
+                    <label><strong>Type de dégâts:</strong></label>{{currentArme.type_degat}}
                 </div>
                 <div>
-                    <label><strong>Caractéristiques:</strong></label>{{currentCompetence.carac_competence}}
+                    <label><strong>Catégorie de l'arme:</strong></label>{{currentArme.category_arme}}
                 </div>
-                    <router-link :to="'/character/competences/' + currentCompetence.id_competence" class="badge badge-warning">Edit</router-link>
+                <div>
+                    <label><strong>Nombres de dégâts:</strong></label>{{currentArme.nb_degat}}
+                </div>
+                <div>
+                    <label><strong>Prix:</strong></label>{{currentArme.prix_arme}}
+                </div>
+                    <router-link :to="'/character/armes/' + currentArme.id_armes" class="badge badge-warning">Edit</router-link>
             </div>
             <div v-else>
-                <p>Please click on a Competence...</p>
+                <p>Please click on a Arme...</p>
             </div>
         </div>
     </div>
 </template>
 <script>
-import CompetenceDataService from "../services/CompetenceDataService";
+import ArmeDataService from "../services/ArmeDataService";
 export default {
-  name: "competences-list",
+  name: "armes-list",
   data() {
     return {
-      competences: [],
-      currentCompetence: null,
+      armes: [],
+      currentArme: null,
       currentIndex: -1,
-      name_competence: ""
+      name_arme: ""
     };
   },
   methods: {
-    retrieveCompetences() {
-      CompetenceDataService.getAll()
+    retrieveArmes() {
+      ArmeDataService.getAll()
         .then(response => {
-          this.competences = response.data;
+          this.armes = response.data;
           console.log(response.data);
         })
         .catch(e => {
@@ -70,16 +76,16 @@ export default {
         });
     },
     refreshList() {
-      this.retrieveCompetences();
-      this.currentCompetence = null;
+      this.retrieveArmes();
+      this.currentArme = null;
       this.currentIndex = -1;
     },
-    setActiveCompetence(competence, index) {
-      this.currentCompetence = competence;
-      this.currentIndex = competence ? index : -1;
+    setActiveArme(arme, index) {
+      this.currentArme = arme;
+      this.currentIndex = arme ? index : -1;
     },
-    removeAllCompetences() {
-      CompetenceDataService.deleteAll()
+    removeAllArmes() {
+      ArmeDataService.deleteAll()
         .then(response => {
           console.log(response.data);
           this.refreshList();
@@ -90,10 +96,10 @@ export default {
     },
     
     searchName() {
-      CompetenceDataService.findByName(this.title)
+      ArmeDataService.findByName(this.title)
         .then(response => {
-          this.competences = response.data;
-          this.setActiveCompetence(null);
+          this.armes = response.data;
+          this.setActiveArme(null);
           console.log(response.data);
         })
         .catch(e => {
@@ -102,7 +108,7 @@ export default {
     }
   },
   mounted() {
-    this.retrieveCompetences();
+    this.retrieveArmes();
   }
 };
 </script>

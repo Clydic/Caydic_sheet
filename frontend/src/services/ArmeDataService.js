@@ -20,7 +20,7 @@ class ArmeDataService {
         return http.delete(path + "/");
     }
     findByName(name_arme) {
-        return http.get(`/competences?name_competence=${name_arme}`);
+        return http.get(`${path}/?name=${name_arme}`);
     }
 }
 export default new ArmeDataService();

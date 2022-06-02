@@ -1,8 +1,5 @@
 <template>
     <div>
-        <h2>{{Name}}</h2>
-        <h3>{{age}}</h3>
-        <p>{{classe}}</p>
         <p>Attaque contact : {{attaqueCac}}</p>
         <p>Attaque dist : {{attaqueDist}}</p>
         <p>
@@ -43,9 +40,6 @@ var id_js = 0
 export default {
     data(){
         return {
-            Name : "Caydic Croc-Blanc",
-            age : "25 ans",
-            classe : "Barbare",
             caracs : list_of_carac,
             js : [
                 {

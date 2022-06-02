@@ -3,7 +3,6 @@
 <h3>Ajouter une compétence</h3>
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="name_competence">Nom de la compétence</label>
         <input
           type="text"
           class="form-control"
@@ -11,38 +10,44 @@
           required
           v-model="competence.name_competence"
           name="name_competence"
+          placeholder="Nom de la compétence"
         />
       </div>
       <div class="form-group">
-        <label for="carac_competence">Caractéristique de la compétence</label>
-        <input
-          class="form-control"
+        <select
+          class="form-select"
           id="carac_competence"
           required
           v-model="competence.carac_competence"
           name="carac_competence"
-        />
+        >
+        <option disabled value="">Choisissez une caractéristique</option>
+        <option v-for="carac in caracteristique" :value="carac.nom" :key="carac">{{carac.nom}}</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="description">Description</label>
         <input
           class="form-control"
           id="description"
           required
           v-model="competence.description"
           name="description"
+          placeholder="Description"
         />
+         
       </div>
       <button @click="savecompetence" class="btn btn-success">Soummettre</button>
     </div>
     <div v-else>
       <h4>Vous avez soumis la requête avec succès</h4>
-      <button class="btn btn-success" @click="newcompetence">Ajouter</button>
+      <button class="btn btn-success m-1" @click="newcompetence">Ajouter</button>
+      <router-link to="/character/competences" class="btn btn-info" >Liste des compétences</router-link>
     </div>
   </div>
 </template>
 <script>
 import CompetenceDataService from "../services/CompetenceDataService";
+var list_of_carac = require( "../assets/js/list_of_carac.js");
 export default {
   name: "add-competence",
   data() {
@@ -53,7 +58,9 @@ export default {
         description: "",
         carac_competence: ""
       },
-      submitted: false
+      submitted: false,
+      caracteristique : list_of_carac
+
     };
   },
   methods: {
