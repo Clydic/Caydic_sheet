@@ -23,5 +23,6 @@ class CompetenceDataService {
     findByName(name_competence) {
         return http.get(`${path}/?name=${name_competence}`);
     }
+
 }
 export default new CompetenceDataService();

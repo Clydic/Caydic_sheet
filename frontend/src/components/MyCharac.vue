@@ -1,8 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title></title>
+	</head>
+	<body>
+		body
+	</body>
+</html>
 <template>
     <div>
         <p>Attaque contact : {{attaqueCac}}</p>
         <p>Attaque dist : {{attaqueDist}}</p>
         <p>
+
             <button class="btn btn-primary" 
             type="button" data-bs-toggle="collapse" 
             data-bs-target="#mycarac" aria-expanded="false" 

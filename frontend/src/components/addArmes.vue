@@ -1,6 +1,6 @@
 <template>
   <div class="submit-form">
-<h3>Ajouter une arme</h3>
+  <h3>Ajouter une arme</h3>
     <div v-if="!submitted">
       <div class="form-group">
         <label for="name_arme">Nom de l'arme</label>
