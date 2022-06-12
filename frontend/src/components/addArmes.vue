@@ -2,6 +2,7 @@
   <div class="submit-form">
   <h3>Ajouter une arme</h3>
     <div v-if="!submitted">
+      <InputForms v-bind="props"/>
       <div class="form-group">
         <label for="name_arme">Nom de l'arme</label>
         <input
@@ -58,13 +59,17 @@
     <div v-else>
       <h4>Vous avez soumis la requête avec succès</h4>
       <button class="btn btn-success m-1" @click="newarme">Ajouter</button>
-      <router-link to="/character/armes" class="btn btn-info" >Liste des compétences</router-link>
+      <router-link to="/character/armes" class="btn btn-info" >Liste des Armes</router-link>
     </div>
   </div>
 </template>
 <script>
 import ArmeDataService from "../services/ArmeDataService";
+import InputForms  from "./InputForms.vue";
 export default {
+  components : {
+    InputForms
+  },
   name: "add-arme",
   data() {
     return {
@@ -76,7 +81,12 @@ export default {
         nb_degat:"",
         prix_arme:""
       },
-      submitted: false
+      submitted: false,
+      props:{
+          name:"description",
+          model:this.name_arme,
+          title: "Description de l'arme" 
+      }
     };
   },
   methods: {
