@@ -2,23 +2,29 @@
   <div class="submit-form">
     <h3>Ajouter une Armure</h3>
     <div v-if="!submitted">
-      <div class="form-group">
-        <label for="name_arme">Nom de l'arme</label>
+      <div v-for="line in forms_line" :key="line.id" class="form-group">
+        <label for="line.id">{{line.label}}</label>
         <input
           type="text"
           class="form-control"
-          id="name_arme"
+          id="line.id"
           required
-          v-model="arme.name_arme"
-          name="name_arme"
-        />
+          v-model="line.model"
+          name="line.id"/> 
       </div>
+      <button @click="savearme" class="btn btn-success">Soummettre</button>
+    </div>
+    <div v-else>
+      <h4>Vous avez soumis la requête avec succès</h4>
+      <button class="btn btn-success m-1" @click="newarmor">Ajouter</button>
+      <router-link to="/character/armors" class="btn btn-info" >
+        Liste des Armors
+      </router-link>
     </div>
   </div>
 </template>
 <script>
-import ArmeDataService from "../services/ArmeDataService";
-import Form  from "Forms.vue";
+import ArmorDataService from "../services/ArmorDataService";
 export default {
   name: "add-armor",
   data() {
@@ -57,17 +63,17 @@ export default {
     };
   },
   methods: {
-    savearme() {
+    savearmor() {
       var data = {
-        name_arme: this.arme.name_arme,
-        type_degat: this.arme.type_degat,
-        category_arme:this.arme.category_arme ,
-        nb_degat:this.arme.nb_degat,
-        prix_arme: this.arme.prix_arme 
+        name_armor: this.armor.name_armor,
+        bonus_ca: this.armor.bonus_ca,
+        category_armor:this.armor.category_armor ,
+        malus_dex:this.armor.malus_dex,
+        price_armor: this.armor.price_armor 
       };
-      ArmeDataService.create(data)
+      ArmorDataService.create(data)
         .then(response => {
-          this.arme.id = response.data.id;
+          this.armor.id = response.data.id;
           console.log(response.data);
           this.submitted = true;
         })
@@ -76,9 +82,9 @@ export default {
         });
     },
     
-    newarme() {
+    newarmor() {
       this.submitted = false;
-      this.arme = {};
+      this.armor = {};
     }
   }
 };

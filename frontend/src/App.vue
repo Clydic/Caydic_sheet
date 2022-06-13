@@ -10,11 +10,8 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark ">
       <router-link to="/home" class="navbar-brand">Caydic</router-link>
       <div class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link to="/character/competences" class="nav-link">Competence</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/character/armes" class="nav-link">Armes</router-link>
+        <li v-for="router of routers" :key="router" class="nav-item">
+	<router-link :to="router.to" class="nav-link">{{router.link}}</router-link>
         </li>
       </div>
     </nav>
@@ -29,9 +26,14 @@ export default {
     name: "app",
     data(){
       return{
-    character_name : "Caydic Croc-Blanc",
-    age : "25 ans",
-    classe : "Barbare",
+   character_name : "Caydic Croc-Blanc",
+   age : "25 ans",
+   classe : "Barbare",	
+   routers:[
+   {to:"/character/competences",link:"Compétences"},
+   {to:"/character/armes",link:"Armes"},
+   {to:"/character/armors",link:"Armors"},
+   ],
 
       }
 

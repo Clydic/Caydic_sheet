@@ -41,6 +41,24 @@ const routes = [{
         name: "armes-details",
         component: () =>
             import ("./components/Armes")
+    },
+    {
+        path: "/character/armors/add",
+        name: "add-armors",
+        component: () =>
+            import ("./components/addArmors")
+    },
+    {
+        path: "/character/armors",
+        name: "armors",
+        component: () =>
+            import ("./components/ArmorsList")
+    },
+    {
+        path: "/character/armors/:id",
+        name: "armors-details",
+        component: () =>
+            import ("./components/Armors")
     }
 ];
 const router = createRouter({

@@ -2,7 +2,6 @@
   <div class="submit-form">
   <h3>Ajouter une arme</h3>
     <div v-if="!submitted">
-      <InputForms v-bind="props"/>
       <div class="form-group">
         <label for="name_arme">Nom de l'arme</label>
         <input
@@ -65,11 +64,7 @@
 </template>
 <script>
 import ArmeDataService from "../services/ArmeDataService";
-import InputForms  from "./InputForms.vue";
 export default {
-  components : {
-    InputForms
-  },
   name: "add-arme",
   data() {
     return {
