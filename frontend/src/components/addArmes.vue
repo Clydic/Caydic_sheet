@@ -1,6 +1,7 @@
 <template>
   <div class="submit-form">
   <h3>Ajouter une arme</h3>
+
     <div v-if="!submitted">
       <div class="form-group">
         <label for="name_arme">Nom de l'arme</label>
@@ -13,26 +14,29 @@
           name="name_arme"
         />
       </div>
+
       <div class="form-group">
         <label for="type_degat">Type de dégâts</label>
         <input
           class="form-control"
-          id="description"
+          id="type_degat"
           required
           v-model="arme.type_degat"
           name="type_degat"
         />
       </div>
+
       <div class="form-group">
-        <label for="carac_arme">Catégory de l'Arme</label>
+        <label for="category_arme">Catégory de l'Arme</label>
         <input
           class="form-control"
-          id="carac_arme"
+          id="category_arme"
           required
           v-model="arme.category_arme"
           name="category_arme"
         />
       </div>
+
       <div class="form-group">
         <label for="nb_degat">Nombre de dégâts</label>
         <input
@@ -43,6 +47,7 @@
           name="nb_degat"
         />
       </div>
+
       <div class="form-group">
         <label for="prix_arme">Prix</label>
         <input
@@ -53,6 +58,7 @@
           name="prix_arme"
         />
       </div>
+
       <button @click="savearme" class="btn btn-success">Soummettre</button>
     </div>
     <div v-else>
@@ -63,7 +69,7 @@
   </div>
 </template>
 <script>
-import ArmeDataService from "../services/ArmeDataService";
+import ArmeDataService from "../services/ArmeDataService.js";
 export default {
   name: "add-arme",
   data() {

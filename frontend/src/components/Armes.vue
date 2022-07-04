@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
         <label for="price">Prix</label>
-        <input type="text" class="form-control" id="price"
+        <input type="text" class="form-control" id="prix_arme"
           v-model="currentArme.price"
         />
       </div>
@@ -72,7 +72,7 @@ export default {
         });
     },
     updateArme() {
-      ArmeDataService.update(this.currentarme.id_arme, this.currentCompetence)
+      ArmeDataService.update(this.currentArme.id_arme, this.currentArme)
         .then(response => {
           console.log(response.data);
           this.message = 'The arme was updated successfully!';

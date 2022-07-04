@@ -16,7 +16,8 @@ exports.create = (req, res) => {
         name_arme: req.body.name_arme,
         type_degat: req.body.type_degat,
         category_arme: req.body.category_arme,
-        nb_degat: req.body.nb_degat
+        nb_degat: req.body.nb_degat,
+        prix_arme: req.body.prix_arme
     };
     //Save Competence in the database
     Arme.create(arme)

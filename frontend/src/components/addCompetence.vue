@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-import CompetenceDataService from "../services/CompetenceDataService";
+import CompetenceDataService from "../services/CompetenceDataService.js";
 var list_of_carac = require( "../assets/js/list_of_carac.js");
 export default {
   name: "add-competence",

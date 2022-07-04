@@ -1,7 +1,7 @@
 <template>
     <div class="list row">
         <div class="col-md-8">
-            <div class="input-group mb-3">
+j           <div class="input-group mb-3">
                 <input type="text" placeholder="Search by name" v-model="name" class="form-control"/>
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" @click="searchName">
@@ -18,7 +18,7 @@
           v-for="(arme, index) in armes"
           :key="index"
           @click="setActiveArme(arme, index)">
-          {{ arme.name_competence }}
+          {{ arme.name_arme }}
         </li>
             </ul>
             <button class="m-3 btn-sm btn-danger" @click="removeAllArmes">
